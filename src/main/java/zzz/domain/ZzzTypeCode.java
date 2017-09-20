@@ -1,7 +1,7 @@
 package zzz.domain;
 
 
-public enum ZzzTypeCode {
+public enum ZzzTypeCode implements ValueObject<Integer> {
 
     AAA(0, "aaa"),
     BBB(1, "bbb"),
@@ -18,7 +18,8 @@ public enum ZzzTypeCode {
     }
 
 
-    public int getValue() {
+    @Override
+    public Integer getValue() {
         return code;
     }
 

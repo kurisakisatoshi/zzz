@@ -1,23 +1,24 @@
 package zzz.domain;
 
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
+import lombok.Value;
 
-@ToString
-@EqualsAndHashCode
-public class Name {
+@Value//(staticConstructor="of")
+//@ToString
+//@EqualsAndHashCode
+public class Name implements ValueObject<String> {
 
-    private final String name;
+    private final String value;
 
     private Name(String name) {
-        this.name = name;
+        this.value = name;
     }
 
     public static Name of(String name) {
         return new Name(name);
     }
 
+    @Override
     public String getValue() {
-        return name;
+        return value;
     }
 }

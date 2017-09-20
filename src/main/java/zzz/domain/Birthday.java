@@ -7,7 +7,8 @@ import lombok.ToString;
 
 @ToString
 @EqualsAndHashCode
-public class Birthday {
+//@JsonDeserialize(as = LocalDate.class)
+public class Birthday implements ValueObject<LocalDate> {
 
     private final LocalDate birthday;
 
@@ -19,6 +20,7 @@ public class Birthday {
         return new Birthday(birthday);
     }
 
+    @Override
     public LocalDate getValue() {
         return birthday;
     }
